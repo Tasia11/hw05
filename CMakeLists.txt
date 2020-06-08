@@ -12,8 +12,7 @@ add_library(transaction STATIC banking/Transaction.cpp)
 target_include_directories(account
  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/banking)
  target_link_libraries(transaction account)
- 
-if(BUILD_TESTS)
+ if(BUILD_TESTS)
   # Включить поддержку тестирования:
   enable_testing()
   add_subdirectory(third-party/gtest)
