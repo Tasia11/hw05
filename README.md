@@ -1,6 +1,6 @@
 ## Homework
 
-[![Build Status](https://travis-ci.com/nastya-asya/hw05.svg?branch=master)](https://travis-ci.com/nastya-asya/hw05) 
+[![Build Status](https://travis-ci.com/nastya-asya/hw05.svg?branch=master)](https://travis-ci.com/nastya-asya/hw05) [![Coverage Status](https://coveralls.io/repos/github/nastya-asya/hw05/badge.svg?branch=master)](https://coveralls.io/github/nastya-asya/hw05?branch=master)
 
 ### Задание
 1. Создайте `CMakeList.txt` для библиотеки *banking*.
