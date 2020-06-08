@@ -1,5 +1,6 @@
 language: cpp
-
+os:
+     -osx
 jobs:
   include:
   - name: "Link an test"
