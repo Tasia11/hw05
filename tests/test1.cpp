@@ -1,19 +1,27 @@
-#include <print.hpp>
-
+#include <Account.h>
 #include <gtest/gtest.h>
 
-TEST(Print, InFileStream)
+TEST(Account, Constructor)
 {
-  std::string filepath = "file.txt";
-  std::string text = "hello";
-  std::ofstream out{filepath};
+Account a(2,300);
 
-  print(text, out);
-  out.close();
+EXPECT_EQ(a.id(),2);
+EXPECT_EQ(a.GetBalance(),300);
+}
 
-  std::string result;
-  std::ifstream in{filepath};
-  in >> result;
+TEST(Account, ChangeBalance)
+{
+  Account a(2,300);
+  a.Lock();
+  a.ChangeBalance(100);
+  EXPECT_EQ(a.GetBalance(),400);
+}
 
-  EXPECT_EQ(result, text);
+TEST(Account, Lock)
+{
+  Account a(2,300);
+  a.Lock();
+  a.ChangeBalance(100);
+  a.Unlock();
+  EXPECT_EQ(a.GetBalance(),400);
 }
