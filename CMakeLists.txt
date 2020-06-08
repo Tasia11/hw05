@@ -12,3 +12,15 @@ add_library(transaction STATIC banking/Transaction.cpp)
 target_include_directories(account
  PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/banking)
  target_link_libraries(transaction account)
+ 
+if(BUILD_TESTS)
+  # Включить поддержку тестирования:
+  enable_testing()
+  add_subdirectory(third-party/gtest)
+  # Создание списка файлов, соответствующих выражению и сохранение его в переменную
+  file(GLOB \${PROJECT_NAME}_TEST_SOURCES tests/*.cpp)
+  add_executable(check \${\${PROJECT_NAME}_TEST_SOURCES})
+  target_link_libraries(check account transaction gtest_main gmock_main)
+  # Добавление тестов к проекту
+  add_test(NAME check COMMAND check)
+endif()
